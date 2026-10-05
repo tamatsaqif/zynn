@@ -25,7 +25,7 @@ export function ProfileHeader({ profile }: ProfileHeaderProps) {
         });
         return;
       } catch (err) {
-        // User cancelled or share failed, fallback to copy
+        // Fallback to copy
       }
     }
 
@@ -68,20 +68,25 @@ export function ProfileHeader({ profile }: ProfileHeaderProps) {
   return (
     <>
       <header className="flex flex-col items-center text-center pt-8 pb-4">
-        {/* Avatar Monogram */}
+        {/* Avatar Monogram with Dual Gold Halo & Shimmer */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.85 }}
+          initial={{ opacity: 0, scale: 0.82 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          transition={{
+            type: "spring",
+            stiffness: 260,
+            damping: 20,
+            duration: 0.6,
+          }}
           className="relative mb-6 group cursor-default"
         >
-          {/* Subtle Outer Halo Ring */}
-          <div className="absolute -inset-1 rounded-full bg-gradient-to-tr from-gold-400/40 via-twilight-200/50 to-gold-300/40 blur-[6px] opacity-70 group-hover:opacity-100 transition-opacity duration-500" />
+          {/* Animated Gold Aura Background */}
+          <div className="absolute -inset-2 rounded-full bg-gradient-to-tr from-gold-400/50 via-twilight-200/60 to-gold-300/50 blur-[10px] opacity-75 group-hover:opacity-100 transition-opacity duration-700 animate-pulse-gold" />
 
-          {/* Avatar Container */}
-          <div className="relative w-24 h-24 rounded-full p-[2px] bg-gradient-to-b from-gold-300/80 via-white to-gold-400/60 shadow-gold-glow">
-            <div className="w-full h-full rounded-full bg-gradient-to-b from-[#FAF8F5] to-[#F1ECF7] flex items-center justify-center border border-white/80">
-              <span className="text-3xl font-semibold tracking-tight text-[#1A191E] select-none font-sans">
+          {/* Avatar Outer Shell with Metallic Gold Border */}
+          <div className="relative w-24 h-24 rounded-full p-[2.5px] bg-gradient-to-b from-gold-300 via-white to-gold-500 shadow-gold-glow-lg transition-transform duration-500 group-hover:scale-105">
+            <div className="w-full h-full rounded-full bg-gradient-to-b from-[#FAF8F5] to-[#F2EDF8] flex items-center justify-center border border-white shadow-inner">
+              <span className="text-3xl font-bold tracking-tight text-[#1A191E] select-none font-sans drop-shadow-sm">
                 {profile.avatarText}
               </span>
             </div>
@@ -90,42 +95,54 @@ export function ProfileHeader({ profile }: ProfileHeaderProps) {
 
         {/* Name & Verified Badge */}
         <motion.div
-          initial={{ opacity: 0, y: 8 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          transition={{
+            duration: 0.5,
+            delay: 0.12,
+            ease: [0.16, 1, 0.3, 1],
+          }}
           className="flex items-center justify-center gap-2 mb-2"
         >
-          <h1 className="text-2xl font-semibold tracking-tight text-[#1A191E]">
+          <h1 className="text-2xl sm:text-[26px] font-bold tracking-tight text-[#1A191E]">
             {profile.name}
           </h1>
           {profile.isVerified && (
             <div className="flex items-center" title="Verified">
-              <VerifiedCheckIcon className="w-5 h-5 drop-shadow-[0_2px_4px_rgba(212,175,55,0.3)]" />
+              <VerifiedCheckIcon className="w-5 h-5 drop-shadow-[0_2px_8px_rgba(212,175,55,0.4)]" />
             </div>
           )}
         </motion.div>
 
         {/* Tagline */}
         <motion.p
-          initial={{ opacity: 0, y: 8 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="text-sm md:text-[15px] text-[#706B7D] font-normal tracking-normal max-w-sm px-4"
+          transition={{
+            duration: 0.5,
+            delay: 0.22,
+            ease: [0.16, 1, 0.3, 1],
+          }}
+          className="text-sm md:text-[15px] text-[#6E687A] font-medium tracking-normal max-w-sm px-4 leading-relaxed"
         >
           {profile.tagline}
         </motion.p>
 
-        {/* Share Button (Clean & Minimal) */}
+        {/* Share Button (Refined Floating Pill) */}
         <motion.div
-          initial={{ opacity: 0, y: 8 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+          transition={{
+            duration: 0.5,
+            delay: 0.28,
+            ease: [0.16, 1, 0.3, 1],
+          }}
           className="mt-4"
         >
           <button
             onClick={handleShare}
             aria-label="Share profile"
-            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium text-[#706B7D] hover:text-[#1A191E] bg-white/70 hover:bg-white border border-gold-400/20 hover:border-gold-400/50 shadow-[0_2px_8px_rgba(0,0,0,0.03)] transition-all duration-200"
+            className="group relative inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold text-[#5A5467] hover:text-[#1A191E] bg-white/80 hover:bg-white border border-gold-400/30 hover:border-gold-500/60 shadow-[0_2px_12px_rgba(212,175,55,0.08)] hover:shadow-gold-glow transition-all duration-300 hover:scale-105 active:scale-95"
           >
             {copied ? (
               <>
@@ -134,7 +151,7 @@ export function ProfileHeader({ profile }: ProfileHeaderProps) {
               </>
             ) : (
               <>
-                <ShareIcon className="w-3.5 h-3.5 opacity-80" />
+                <ShareIcon className="w-3.5 h-3.5 text-gold-600 group-hover:text-gold-700 transition-colors" />
                 <span>Bagikan</span>
               </>
             )}

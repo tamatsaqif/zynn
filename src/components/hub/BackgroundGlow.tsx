@@ -1,35 +1,21 @@
 "use client";
 
 import React from "react";
+import { ShaderBackground } from "@/components/ui/adisyon-shader";
 
 export function BackgroundGlow() {
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-      {/* Soft twilight / lembayung subtle glow orb */}
-      <div
-        className="absolute -top-[20%] left-1/2 -translate-x-1/2 w-[700px] h-[550px] rounded-full blur-[120px] opacity-60 animate-pulse-gold"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(235, 222, 248, 0.7) 0%, rgba(248, 241, 230, 0.4) 50%, transparent 70%)",
-        }}
-      />
+    <div className="fixed inset-0 pointer-events-none overflow-hidden z-0 select-none">
+      {/* Dynamic WebGL Shader Fluid Waves in Putih Lembayung & Gold */}
+      <div className="absolute inset-0 opacity-75">
+        <ShaderBackground className="w-full h-full" />
+      </div>
 
-      {/* Warm champagne gold micro accent */}
-      <div
-        className="absolute top-[35%] right-[-10%] w-[450px] h-[450px] rounded-full blur-[140px] opacity-35"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(245, 220, 155, 0.5) 0%, transparent 70%)",
-        }}
-      />
+      {/* Subtle pearlescent luminous gradient overlay for refined depth */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#FAF9F8]/60 via-transparent to-[#FAF9F8]/80 backdrop-blur-[1px]" />
 
-      <div
-        className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full blur-[140px] opacity-30"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(230, 220, 245, 0.5) 0%, transparent 70%)",
-        }}
-      />
+      {/* Ambient gold edge vignette */}
+      <div className="absolute inset-0 shadow-[inset_0_0_100px_rgba(212,175,55,0.08)] pointer-events-none" />
     </div>
   );
 }
