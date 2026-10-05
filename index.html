@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zynn</title>
+  <meta name="description" content="Don't follow your dream, follow my instagram">
+  <meta property="og:title" content="Zynn">
+  <meta property="og:description" content="Don't follow your dream, follow my instagram">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            pearl: {
+              50: "#FCFBF9",
+              100: "#FAF9F8",
+              200: "#F4F1EC",
+            },
+            twilight: {
+              100: "#F3EEF8",
+              200: "#E9DFFA",
+            },
+            gold: {
+              300: "#F3DC9B",
+              400: "#E6C568",
+              500: "#D4AF37",
+              600: "#B88E1C",
+              700: "#916D0E",
+            }
+          },
+          boxShadow: {
+            'gold-glow': '0 0 25px -5px rgba(212, 175, 55, 0.25)',
+            'subtle-card': '0 10px 30px -10px rgba(180, 150, 80, 0.08)',
+            'subtle-card-hover': '0 20px 40px -12px rgba(180, 150, 80, 0.16)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background: #FAF9F8;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Plus Jakarta Sans", "Inter", sans-serif;
+    }
+    @keyframes pulseGold {
+      0%, 100% { opacity: 0.45; }
+      50% { opacity: 0.75; }
+    }
+    .animate-pulse-gold {
+      animation: pulseGold 4s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="min-h-screen relative flex flex-col items-center justify-between px-4 sm:px-6 py-6 md:py-10 text-[#1A191E] selection:bg-[#F3DC9B]">
+  <!-- Soft Ambient Glow -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <div class="absolute -top-[20%] left-1/2 -translate-x-1/2 w-[700px] h-[550px] rounded-full blur-[120px] opacity-60 animate-pulse-gold" style="background: radial-gradient(circle, rgba(235, 222, 248, 0.7) 0%, rgba(248, 241, 230, 0.4) 50%, transparent 70%);"></div>
+    <div class="absolute top-[35%] right-[-10%] w-[450px] h-[450px] rounded-full blur-[140px] opacity-35" style="background: radial-gradient(circle, rgba(245, 220, 155, 0.5) 0%, transparent 70%);"></div>
+  </div>
+
+  <!-- Content Container -->
+  <div class="relative z-10 w-full max-w-md flex flex-col">
+    <!-- Profile Header -->
+    <header class="flex flex-col items-center text-center pt-8 pb-4">
+      <div class="relative mb-6">
+        <div class="absolute -inset-1 rounded-full bg-gradient-to-tr from-[#E6C568]/40 via-[#E9DFFA]/50 to-[#F3DC9B]/40 blur-[6px] opacity-70"></div>
+        <div class="relative w-24 h-24 rounded-full p-[2px] bg-gradient-to-b from-[#F3DC9B] via-white to-[#E6C568]/60 shadow-gold-glow">
+          <div class="w-full h-full rounded-full bg-gradient-to-b from-[#FAF8F5] to-[#F1ECF7] flex items-center justify-center border border-white/80">
+            <span class="text-3xl font-semibold tracking-tight text-[#1A191E] select-none">Z</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center gap-2 mb-2">
+        <h1 class="text-2xl font-semibold tracking-tight text-[#1A191E]">Zynn</h1>
+        <!-- Gold Verified Badge -->
+        <svg class="w-5 h-5 drop-shadow-[0_2px_4px_rgba(212,175,55,0.3)]" viewBox="0 0 24 24" fill="none">
+          <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" fill="url(#goldGrad)" />
+          <path d="M9 12l2 2 4-4" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+          <defs>
+            <linearGradient id="goldGrad" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#F5DC92" />
+              <stop offset="0.5" stop-color="#D4AF37" />
+              <stop offset="1" stop-color="#A67B14" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <p class="text-sm md:text-[15px] text-[#706B7D] font-normal tracking-normal max-w-sm px-4">
+        Don't follow your dream, follow my instagram
+      </p>
+
+      <div class="mt-4">
+        <button id="shareBtn" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium text-[#706B7D] hover:text-[#1A191E] bg-white/70 hover:bg-white border border-[#E6C568]/30 hover:border-[#E6C568]/60 shadow-[0_2px_8px_rgba(0,0,0,0.03)] transition-all duration-200">
+          <svg class="w-3.5 h-3.5 opacity-80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+          </svg>
+          <span id="shareText">Bagikan</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- 4 Core Links -->
+    <section class="mt-6 flex flex-col space-y-3.5">
+      <!-- 1. Instagram -->
+      <a href="https://instagram.com/nath.isme" target="_blank" rel="noopener noreferrer" class="group relative block w-full p-4 md:p-5 rounded-2xl bg-white/80 hover:bg-white/95 backdrop-blur-xl border border-[#E6C568]/20 hover:border-[#D4AF37]/50 shadow-subtle-card hover:shadow-subtle-card-hover transition-all duration-300 hover:-translate-y-1">
+        <div class="flex items-center justify-between gap-4">
+          <div class="flex items-center gap-3.5 min-w-0">
+            <div class="w-11 h-11 shrink-0 rounded-xl bg-gradient-to-b from-[#FCFBF9] to-[#F3EEF8] flex items-center justify-center border border-[#F3DC9B]/40 group-hover:border-[#E6C568]/70 shadow-[0_2px_8px_rgba(0,0,0,0.03)] transition-all">
+              <svg class="w-5 h-5 text-[#E1306C]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </div>
+            <div class="min-w-0">
+              <h2 class="text-base font-medium text-[#1A191E] tracking-tight group-hover:text-[#916D0E] transition-colors">Instagram</h2>
+              <p class="text-xs text-[#7B7687] font-normal tracking-wide mt-0.5">@nath.isme</p>
+            </div>
+          </div>
+          <div class="w-8 h-8 shrink-0 rounded-full flex items-center justify-center text-[#9E9AA8] group-hover:text-[#B88E1C] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
+            </svg>
+          </div>
+        </div>
+      </a>
+
+      <!-- 2. Discord -->
+      <a href="https://dsc.gg/tinggi-badan" target="_blank" rel="noopener noreferrer" class="group relative block w-full p-4 md:p-5 rounded-2xl bg-white/80 hover:bg-white/95 backdrop-blur-xl border border-[#E6C568]/20 hover:border-[#D4AF37]/50 shadow-subtle-card hover:shadow-subtle-card-hover transition-all duration-300 hover:-translate-y-1">
+        <div class="flex items-center justify-between gap-4">
+          <div class="flex items-center gap-3.5 min-w-0">
+            <div class="w-11 h-11 shrink-0 rounded-xl bg-gradient-to-b from-[#FCFBF9] to-[#F3EEF8] flex items-center justify-center border border-[#F3DC9B]/40 group-hover:border-[#E6C568]/70 shadow-[0_2px_8px_rgba(0,0,0,0.03)] transition-all">
+              <svg class="w-5 h-5 text-[#5865F2]" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+              </svg>
+            </div>
+            <div class="min-w-0">
+              <h2 class="text-base font-medium text-[#1A191E] tracking-tight group-hover:text-[#916D0E] transition-colors">Discord</h2>
+              <p class="text-xs text-[#7B7687] font-normal tracking-wide mt-0.5">Tinggi Badan</p>
+            </div>
+          </div>
+          <div class="w-8 h-8 shrink-0 rounded-full flex items-center justify-center text-[#9E9AA8] group-hover:text-[#B88E1C] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
+            </svg>
+          </div>
+        </div>
+      </a>
+
+      <!-- 3. TikTok -->
+      <a href="https://tiktok.com/@z.zayyant" target="_blank" rel="noopener noreferrer" class="group relative block w-full p-4 md:p-5 rounded-2xl bg-white/80 hover:bg-white/95 backdrop-blur-xl border border-[#E6C568]/20 hover:border-[#D4AF37]/50 shadow-subtle-card hover:shadow-subtle-card-hover transition-all duration-300 hover:-translate-y-1">
+        <div class="flex items-center justify-between gap-4">
+          <div class="flex items-center gap-3.5 min-w-0">
+            <div class="w-11 h-11 shrink-0 rounded-xl bg-gradient-to-b from-[#FCFBF9] to-[#F3EEF8] flex items-center justify-center border border-[#F3DC9B]/40 group-hover:border-[#E6C568]/70 shadow-[0_2px_8px_rgba(0,0,0,0.03)] transition-all">
+              <svg class="w-5 h-5 text-[#111111]" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+              </svg>
+            </div>
+            <div class="min-w-0">
+              <h2 class="text-base font-medium text-[#1A191E] tracking-tight group-hover:text-[#916D0E] transition-colors">TikTok</h2>
+              <p class="text-xs text-[#7B7687] font-normal tracking-wide mt-0.5">@z.zayyant</p>
+            </div>
+          </div>
+          <div class="w-8 h-8 shrink-0 rounded-full flex items-center justify-center text-[#9E9AA8] group-hover:text-[#B88E1C] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
+            </svg>
+          </div>
+        </div>
+      </a>
+
+      <!-- 4. S2Hub (Web Kelas) -->
+      <a href="https://science2hub.vercel.app" target="_blank" rel="noopener noreferrer" class="group relative block w-full p-4 md:p-5 rounded-2xl bg-white/80 hover:bg-white/95 backdrop-blur-xl border border-[#E6C568]/20 hover:border-[#D4AF37]/50 shadow-subtle-card hover:shadow-subtle-card-hover transition-all duration-300 hover:-translate-y-1">
+        <div class="flex items-center justify-between gap-4">
+          <div class="flex items-center gap-3.5 min-w-0">
+            <div class="w-11 h-11 shrink-0 rounded-xl bg-gradient-to-b from-[#FCFBF9] to-[#F3EEF8] flex items-center justify-center border border-[#F3DC9B]/40 group-hover:border-[#E6C568]/70 shadow-[0_2px_8px_rgba(0,0,0,0.03)] transition-all">
+              <svg class="w-5 h-5 text-[#B88E1C]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                <path d="M2 12h20"/>
+              </svg>
+            </div>
+            <div class="min-w-0">
+              <h2 class="text-base font-medium text-[#1A191E] tracking-tight group-hover:text-[#916D0E] transition-colors">S2Hub</h2>
+              <p class="text-xs text-[#7B7687] font-normal tracking-wide mt-0.5">science2hub.vercel.app</p>
+            </div>
+          </div>
+          <div class="w-8 h-8 shrink-0 rounded-full flex items-center justify-center text-[#9E9AA8] group-hover:text-[#B88E1C] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
+            </svg>
+          </div>
+        </div>
+      </a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-12 mb-8 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#F3DC9B]/30 bg-white/50 backdrop-blur-sm">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse"></span>
+        <span class="text-[11px] font-medium text-[#8A8596] tracking-wider uppercase">Zynn © 2026</span>
+      </div>
+    </footer>
+  </div>
+
+  <div id="toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 hidden flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#1A191E]/90 text-white text-xs font-medium backdrop-blur-md border border-[#E6C568]/40 shadow-lg">
+    <svg class="w-3.5 h-3.5 text-[#F3DC9B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    <span>Tautan berhasil disalin</span>
+  </div>
+
+  <script>
+    const shareBtn = document.getElementById('shareBtn');
+    const toast = document.getElementById('toast');
+    let toastTimeout;
+
+    shareBtn.addEventListener('click', async () => {
+      if (navigator.share) {
+        try {
+          await navigator.share({
+            title: 'Zynn',
+            text: "Don't follow your dream, follow my instagram",
+            url: window.location.href,
+          });
+          return;
+        } catch (e) {}
+      }
+      navigator.clipboard.writeText(window.location.href);
+      toast.classList.remove('hidden');
+      toast.classList.add('flex');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.add('hidden');
+        toast.classList.remove('flex');
+      }, 2500);
+    });
+  </script>
+</body>
+</html>
