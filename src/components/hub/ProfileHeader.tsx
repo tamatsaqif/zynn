@@ -29,12 +29,39 @@ export function ProfileHeader({ profile }: ProfileHeaderProps) {
       }
     }
 
+    const url = window.location.href;
+    let copiedSuccess = false;
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        copiedSuccess = true;
+      } catch (e) {
+        copiedSuccess = fallbackCopy(url);
+      }
+    } else {
+      copiedSuccess = fallbackCopy(url);
+    }
+
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2400);
+  };
+
+  const fallbackCopy = (text: string): boolean => {
     try {
-      await navigator.clipboard.writeText(window.location.href);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2400);
-    } catch (e) {
-      // ignore
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      textArea.style.position = "fixed";
+      textArea.style.left = "-999999px";
+      textArea.style.top = "-999999px";
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      const successful = document.execCommand("copy");
+      document.body.removeChild(textArea);
+      return successful;
+    } catch (err) {
+      return false;
     }
   };
 
